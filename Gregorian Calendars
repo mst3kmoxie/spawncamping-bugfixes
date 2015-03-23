@@ -1,0 +1,36 @@
+import java.util.Calendar;
+This is based on the question Project 2.1 of the Java Concepts book (pp 21-22).  
+    Items to resolve, beyond a basic understanding of the Calendar utility are:
+    Write a program that prints the following information --
+      1.  The date and weekday that is 100 days from today.
+      2.  The weekday of your birthday.
+      3.  The date that is 10,000 days from your birthday
+
+=======================================
+import java.util.GregorianCalendar;
+
+public class CalendarApp {
+	public static void main(String[] args) {
+		
+		//This is how you call TODAY'S date:
+		GregorianCalendar cal = new GregorianCalendar(); 
+		
+		//This is how you call a SPECIFIC date:
+		GregorianCalendar eckertsBday = new GregorianCalendar(1919, Calendar.APRIL, 9);
+		
+		//To change from today's date to another date you want, 
+		//call the .add method.  Here we want 10 days from today's date:
+		cal.add(Calendar.DAY_OF_MONTH, 10); 
+		
+		int dayOfMonth = cal.get(Calendar.DAY_OF_MONTH);
+		int month = cal.get(Calendar.MONTH);
+		int year = cal.get(Calendar.YEAR);
+		int weekday = cal.get(Calendar.DAY_OF_WEEK);
+			// 1 is Sunday, 2 is Monday,...7 is Saturday
+		
+		cal.set(year, month, dayOfMonth);
+		System.out.println("Date: " + cal.getTime().toString());
+		cal.add(Calendar.DAY_OF_MONTH, 100);
+		System.out.println("Date: " + cal.getTime().toString());
+	}
+}
