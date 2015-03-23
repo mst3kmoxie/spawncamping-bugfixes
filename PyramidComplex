@@ -1,0 +1,32 @@
+Exercise from Java Made Easy site that prings pyramid of numbers, changing direction midstream and centers it.
+
+public class PyramidComplex {
+	public static void main(String[] args) {
+
+		// Using loops to make an numbers pyramid. Double whee!
+
+		for (int x = 1; x <= 10; x++) {
+
+			int y = 0;
+			for (y = 1; y < x + 1; y++) {
+				if (y + x > 10) {
+					System.out.print(" " + (y + x - 11));
+				} else {
+					System.out.print(" " + (y + x - 1));
+				}
+			}
+
+			// Start of code that reverses number order
+			for (int z = y + x - 3; z > x - 1; z--) {
+				if (z > 9) {
+					System.out.print(" " + (z - 10));
+				} else {
+					System.out.print(" " + z);
+				}
+			}
+
+			System.out.println();
+
+		}
+	}
+}
